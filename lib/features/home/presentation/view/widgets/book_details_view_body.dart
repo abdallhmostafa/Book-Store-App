@@ -9,31 +9,27 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return const CustomScrollView(
-      physics:  BouncingScrollPhysics(),
+      physics: BouncingScrollPhysics(),
       slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
           child: Padding(
-            padding:
-                 EdgeInsets.symmetric(horizontal: 30.0, vertical: 0.0),
+            padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 0.0),
             child: Column(
               children: [
-                 CustomAppBarBookDetails(),
-
+                CustomAppBarBookDetails(),
                 BookDetailsSection(),
-                 SizedBox(
+                SizedBox(
                   height: 37.0,
                 ),
-
-                 BooksAction(),
-                 Expanded(
+                BooksAction(),
+                Expanded(
                   child: SizedBox(
                     height: 50.0,
                   ),
                 ),
-                 SimilarBooksSection(),
+                SimilarBooksSection(),
               ],
             ),
           ),

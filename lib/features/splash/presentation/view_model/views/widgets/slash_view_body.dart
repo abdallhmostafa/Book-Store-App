@@ -1,6 +1,6 @@
 import 'package:booka/core/utilities/app_router.dart';
 import 'package:booka/core/utilities/assets_data.dart';
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -22,9 +22,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     navigateToHome();
   }
 
-
-
-
   @override
   void dispose() {
     animationController.dispose();
@@ -35,7 +32,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-         child: AnimatedBuilder(
+        child: AnimatedBuilder(
           animation: animation,
           builder: (context, child) => FadeTransition(
             opacity: animation,
@@ -48,22 +45,24 @@ class _SplashViewBodyState extends State<SplashViewBody>
       ),
     );
   }
+
   void initFadeAnimation() {
     animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1500));
 
-    animation = Tween<double>(begin: 0.1,end: 1 ).animate(animationController);
+    animation = Tween<double>(begin: 0.1, end: 1).animate(animationController);
     // animation =
     //     CurvedAnimation(parent: animationController, curve: Curves.easeIn);
     animationController.forward();
   }
+
   void navigateToHome() {
-    Future.delayed(const Duration(seconds: 3),() => GoRouter.of(context).pushReplacement(AppRouter.kHomeView)
+    Future.delayed(
+      const Duration(seconds: 3),
+      () => GoRouter.of(context).pushReplacement(AppRouter.kHomeView)
 
-    // transition: Transition.fadeIn,duration:const Duration(microseconds: 700))
-    ,)
-   ;
+      // transition: Transition.fadeIn,duration:const Duration(microseconds: 700))
+      ,
+    );
   }
-
 }
-

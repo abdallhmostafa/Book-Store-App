@@ -1,4 +1,3 @@
-
 import 'package:booka/features/home/presentation/view/widgets/book_list_view_item.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +6,7 @@ class BestSellerListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Expanded(
+    return Expanded(
       child: ListView.builder(
         padding: EdgeInsets.zero,
         physics: const NeverScrollableScrollPhysics(),
@@ -21,5 +20,3 @@ class BestSellerListView extends StatelessWidget {
     );
   }
 }
-
-

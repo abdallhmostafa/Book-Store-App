@@ -9,62 +9,39 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 0.0),
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const CustomAppBar(),
+                SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    child: const FeaturedListView()),
+                const SizedBox(
+                  height: 50.0,
+                ),
+                const Text(
+                  'Best Seller',
+                  style: StylesOfText.textStyle18,
+                ),
+                const SizedBox(
+                  height: 20.0,
+                ),
+              ],
+            ),
+          ),
+          const SliverFillRemaining(
+            // hasScrollBody: false,
 
-return Padding(
-
-  padding: const EdgeInsets.symmetric(horizontal:25,vertical: 0.0),
-
-  child:   CustomScrollView(
-
-    physics:const BouncingScrollPhysics(),
-
-    slivers: [
-
-      SliverToBoxAdapter(
-
-        child:  Column (
-
-          crossAxisAlignment: CrossAxisAlignment.start,
-
-          children: [
-
-            const  CustomAppBar(),
-
-            SizedBox(
-
-                height: MediaQuery.of(context).size.height * 0.3 ,
-
-                child:const FeaturedListView()),
-
-            const SizedBox(height: 50.0,),
-
-            const  Text( 'Best Seller',style: StylesOfText.textStyle18,),
-
-            const SizedBox(height: 20.0,),
-
-
-
-          ],
-
-        ),
-
+            child: BestSellerListView(),
+          )
+        ],
       ),
-
-      const SliverFillRemaining(
-
-        // hasScrollBody: false,
-
-        child:   BestSellerListView(),
-
-
-
-      )
-
-    ],
-
-  ),
-
-);
-
+    );
   }
 }
