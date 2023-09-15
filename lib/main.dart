@@ -1,9 +1,15 @@
 import 'package:booka/constants.dart';
 import 'package:booka/core/utilities/app_router.dart';
+import 'package:booka/core/utilities/service_locator.dart';
+import 'package:booka/features/home/data/repos/home_repo_implement.dart';
+import 'package:booka/features/home/presentation/view_model/featured_books_cubit/featured_books_cubit.dart';
+import 'package:booka/features/home/presentation/view_model/newest_books_cubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
+  setupServiceLocator();
   runApp(const BooKaApp());
 }
 
@@ -15,15 +21,25 @@ class BooKaApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ));
-    return MaterialApp.router(
-      title: 'Booka',
-      darkTheme: ThemeData.dark(),
-      theme: ThemeData(fontFamily: 'Montserrat').copyWith(
-        scaffoldBackgroundColor: kPrimaryColor,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+            create: (context) =>
+                FeaturedBooksCubit(getIt.get<HomeRepoImplement>())),
+        BlocProvider(
+            create: (context) =>
+                NewestBooksCubit(getIt.get<HomeRepoImplement>())),
+      ],
+      child: MaterialApp.router(
+        title: 'Booka',
+        darkTheme: ThemeData.dark(),
+        theme: ThemeData(fontFamily: 'Montserrat').copyWith(
+          scaffoldBackgroundColor: kPrimaryColor,
+        ),
+        debugShowCheckedModeBanner: false,
+        // home:const SplashViewScreen(),
+        routerConfig: AppRouter.router,
       ),
-      debugShowCheckedModeBanner: false,
-      // home:const SplashViewScreen(),
-      routerConfig: AppRouter.router,
     );
   }
 }
