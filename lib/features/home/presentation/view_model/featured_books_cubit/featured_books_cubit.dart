@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
-  FeaturedBooksCubit(this.homeRepo):super (FeaturedBooksInitialState());
+  FeaturedBooksCubit(this.homeRepo) : super(FeaturedBooksInitialState());
 
   final HomeRepo homeRepo;
 
@@ -17,6 +17,6 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
     result.fold(
         (failure) =>
             emit(FeaturedBooksFailureState(errorMessage: failure.errorMessage)),
-        (books) => FeaturedBooksSuccessState(books: books));
+        (books) =>emit( FeaturedBooksSuccessState(books: books)));
   }
 }

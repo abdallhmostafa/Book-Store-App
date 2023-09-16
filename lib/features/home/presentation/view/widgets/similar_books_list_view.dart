@@ -12,7 +12,7 @@ class SimilarBooksListView extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) => const Padding(
-          padding: EdgeInsets.only(right: 10.0), child: CustomBookItem()),
+          padding: EdgeInsets.only(right: 10.0), child: CustomBookItem(imageUrl: 'dssssssssssssssssssssssssssssssssssssssssssssss',)),
     );
   }
 }

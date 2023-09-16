@@ -25,7 +25,7 @@ class BooKaApp extends StatelessWidget {
       providers: [
         BlocProvider(
             create: (context) =>
-                FeaturedBooksCubit(getIt.get<HomeRepoImplement>())),
+                FeaturedBooksCubit(getIt.get<HomeRepoImplement>())..fetchFeaturedBooks(),),
         BlocProvider(
             create: (context) =>
                 NewestBooksCubit(getIt.get<HomeRepoImplement>())),
