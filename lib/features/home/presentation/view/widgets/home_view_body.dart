@@ -26,7 +26,7 @@ class HomeViewBody extends StatelessWidget {
                   height: 50.0,
                 ),
                 const Text(
-                  'Best Seller',
+                  'Newest Books',
                   style: StylesOfText.textStyle18,
                 ),
                 const SizedBox(

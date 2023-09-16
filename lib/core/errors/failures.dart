@@ -30,14 +30,10 @@ class ServiceFailure extends Failure{
       return ServiceFailure('Connection Error!');
 
       case DioExceptionType.unknown:
-        if(dioError.message!.contains('SocketException'))
-          {
-            return ServiceFailure(
+          
+      return ServiceFailure(
                 'No Internet Connection, Please Try Again Later');
-          }
-
-          return ServiceFailure(
-              'Opps There are an Error, Please Try Again Later');
+          
 
       default:
         return ServiceFailure(

@@ -28,7 +28,7 @@ class BooKaApp extends StatelessWidget {
                 FeaturedBooksCubit(getIt.get<HomeRepoImplement>())..fetchFeaturedBooks(),),
         BlocProvider(
             create: (context) =>
-                NewestBooksCubit(getIt.get<HomeRepoImplement>())),
+                NewestBooksCubit(getIt.get<HomeRepoImplement>())..fetchNewestBooks()),
       ],
       child: MaterialApp.router(
         title: 'Booka',

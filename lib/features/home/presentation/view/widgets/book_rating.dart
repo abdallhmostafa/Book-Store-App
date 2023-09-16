@@ -3,34 +3,36 @@ import 'package:flutter/material.dart';
 
 class BookRating extends StatelessWidget {
   const BookRating(
-      {super.key, this.mainAxisAlignment = MainAxisAlignment.start});
+      {super.key, this.mainAxisAlignment = MainAxisAlignment.start, required this.rating, required this.count});
 
+  final String rating;
+  final int count;
   final MainAxisAlignment mainAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: mainAxisAlignment,
-      children: const <Widget>[
-        Icon(
+      children:  <Widget>[
+       const Icon(
           Icons.star_rate_rounded,
           color: Color(0xffFFDD4F),
           size: 20.0,
         ),
-        SizedBox(
+      const  SizedBox(
           width: 6.0,
         ),
         Text(
-          '4.8',
+          rating,
           style: StylesOfText.textStyle16,
         ),
-        SizedBox(
+     const   SizedBox(
           width: 5.0,
         ),
         Opacity(
             opacity: 0.5,
             child: Text(
-              '(2390)',
+             '($count)',
               style: StylesOfText.textStyle14,
             ))
       ],
